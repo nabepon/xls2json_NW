@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script>
+	document.onkeydown = function(e) {
+		if (e.keyIdentifier == "F5") location.reload();
+	};
+	var xlsjs = require('xlsjs');
+	var gui = require('nw.gui');
+	var win = gui.Window.get();
+	var fs = require('fs');
+	var _ = require('lodash');
+	
+	/*
+	win.minimize();
+	win.on("devtools-closed",function(){
+		win.close();
+	})
+	win.showDevTools()
+	*/
+</script>
+
+<script src="./lib/jquery-2.1.3.min.js"></script>
+<script src="./js/xls2json.js"></script>
+
+<script>
+win.on("devtools-closed",function(){
+	win.close();
+})
+$(document).on("click","#convert",function(){
+	win.showDevTools()
+	xls2json();
+})
+</script>
+</head>
+<body>
+	<h1>xls2json</h1>
+	<button id="convert" >convert</button>
+</html>
